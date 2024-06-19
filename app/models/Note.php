@@ -1,6 +1,6 @@
 <?php
 class Note {
-
+    
     public function __construct() {
         // Constructor can be used for initialization if needed
     }
@@ -36,6 +36,13 @@ class Note {
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->bindValue(':subject', $subject, PDO::PARAM_STR);
         $statement->bindValue(':completed', $completed, PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function deleteNote($id) {
+        $db = db_connect();
+        $statement = $db->prepare("UPDATE notes SET deleted = 1 WHERE id = :id");
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
     }
 }

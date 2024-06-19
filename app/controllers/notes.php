@@ -35,5 +35,11 @@ class Notes extends Controller {
         $noteModel->updateNote($id, $subject, $completed);
         header('Location: /notes');
     }
+  
+    public function delete($id) {
+      $noteModel = $this->model('Note');
+      $noteModel->deleteNote($id);
+      header('Location: /notes');
+    }
 }
 ?>
