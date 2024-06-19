@@ -44,6 +44,7 @@ class User {
             // Successful attempt
             $_SESSION['auth'] = 1;
             $_SESSION['username'] = ucwords($username);
+            $_SESSION['user_id'] = $rows['id'];
             unset($_SESSION['loginError']);
             $attempt = 'good';
         } else {
