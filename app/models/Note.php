@@ -9,7 +9,7 @@ class Note {
     public function getUserNotes() {
         $userId = $_SESSION['user_id'];
         $db = db_connect();
-        $statement = $this->db->prepare("SELECT * FROM notes WHERE user_id = :userId AND deleted = 0");
+        $statement = $db->prepare("SELECT * FROM notes WHERE user_id = :userId AND deleted = 0");
         $statement->bindValue(':userId', $userId, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
