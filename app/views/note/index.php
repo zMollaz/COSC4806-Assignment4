@@ -4,7 +4,7 @@ require_once 'app/views/templates/header.php'; ?>
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>My Reminders</h2>
-        <a href="notes/create" class="btn btn-primary">Create New Note</a>
+        <a href="notes/create" class="btn btn-primary">Create new reminder</a>
     </div>
     <div class="list-group">
     <?php

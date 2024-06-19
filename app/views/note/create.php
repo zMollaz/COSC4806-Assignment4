@@ -1,6 +1,6 @@
 <?php require_once 'app/views/templates/header.php'; ?>
 <div class="container">
-    <h2>Create Note</h2>
+    <h2>Create a reminder</h2>
     <form action="/notes/save" method="POST">
         <div class="mb-3">
             <label for="subject" class="form-label">Subject</label>
