@@ -11,9 +11,6 @@
                     <div>
                     </div>
                 </div>
-                <div class="card-footer text-end">
-                    <a href="/logout" class="btn btn-danger">Logout</a>
-                </div>
             </div>
         </div>
     </div>
