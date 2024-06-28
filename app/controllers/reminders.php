@@ -5,7 +5,7 @@ class Reminders extends Controller {
     public function index() {
         $userId = $_SESSION['user_id'];
         $reminderModel = $this->model('Reminder');
-        $reminders = $reminderModel->getUserReminders($userId);
+        $reminders = $reminderModel->get_user_reminders($userId);
         $this->view('reminder/index', ['reminders' => $reminders]);
     }
 
@@ -18,13 +18,13 @@ class Reminders extends Controller {
         $subject = $_POST['subject'];
         $completed = isset($_POST['completed']) ? 1 : 0;
         $reminderModel = $this->model('Reminder');
-        $reminderModel->createReminder($userId, $subject, $completed);
+        $reminderModel->create_reminder($userId, $subject, $completed);
         header('Location: /reminders');
     }
 
     public function edit($id) {
         $reminderModel = $this->model('Reminder');
-        $reminder = $reminderModel->getReminderById($id);
+        $reminder = $reminderModel->get_reminder_by_id($id);
         $this->view('reminder/edit', ['reminder' => $reminder]);
     }
 
@@ -32,13 +32,13 @@ class Reminders extends Controller {
         $subject = $_POST['subject'];
         $completed = $_POST['completed'] ? 1 : 0;
         $reminderModel = $this->model('Reminder');
-        $reminderModel->updateReminder($id, $subject, $completed);
+        $reminderModel->update_reminder($id, $subject, $completed);
         header('Location: /reminders');
     }
   
     public function delete($id) {
         $reminderModel = $this->model('Reminder');
-        $reminderModel->deleteReminder($id);
+        $reminderModel->delete_reminder($id);
         header('Location: /reminders');
     }
 }

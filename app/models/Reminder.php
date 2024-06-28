@@ -5,7 +5,7 @@ class Reminder {
         // Constructor can be used for initialization if needed
     }
 
-    public function getUserReminders($userId) {
+    public function get_user_reminders($userId) {
         $db = db_connect();
         $statement = $db->prepare("SELECT * FROM reminders WHERE user_id = :userId AND deleted = 0");
         $statement->bindValue(':userId', $userId, PDO::PARAM_INT);
@@ -13,7 +13,7 @@ class Reminder {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createReminder($userId, $subject, $completed) {
+    public function create_reminder($userId, $subject, $completed) {
         $db = db_connect();
         $statement = $db->prepare("INSERT INTO reminders (user_id, subject, completed, created_at, deleted) VALUES (:userId, :subject, :completed, NOW(), 0)");
         $statement->bindValue(':userId', $userId, PDO::PARAM_INT);
@@ -22,7 +22,7 @@ class Reminder {
         $statement->execute();
     }
 
-    public function getReminderById($id) {
+    public function get_reminder_by_id($id) {
         $db = db_connect();
         $statement = $db->prepare("SELECT * FROM reminders WHERE id = :id");
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -30,7 +30,7 @@ class Reminder {
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function updateReminder($id, $subject, $completed) {
+    public function update_reminder($id, $subject, $completed) {
         $db = db_connect();
         $statement = $db->prepare("UPDATE reminders SET subject = :subject, completed = :completed WHERE id = :id");
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -39,7 +39,7 @@ class Reminder {
         $statement->execute();
     }
 
-    public function deleteReminder($id) {
+    public function delete_reminder($id) {
         $db = db_connect();
         $statement = $db->prepare("UPDATE reminders SET deleted = 1 WHERE id = :id");
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
