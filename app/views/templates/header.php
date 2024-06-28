@@ -52,7 +52,7 @@ if (!isset($_SESSION['auth'])) {
                         <a class="nav-link" href="/about">About Me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/notes">Reminders</a>
+                        <a class="nav-link" href="/reminders">Reminders</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
